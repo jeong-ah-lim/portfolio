@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - 임정아</title>
+    <link rel="shortcut icon" href="./images/favicon_16x16.png" type="image/x-icon">
+    <link rel="icon" href="./images/favicon_16x16.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <style>
+        *{padding: 0; margin: 0; box-sizing: border-box;}
+        ul{padding-left: 0; list-style: none;}
+        a{text-decoration: none; color: #fff;}
+        button{cursor: pointer; border: none; outline: none; background-color: transparent;}
+        body{font-size: 16px; font-family: 'Poppins', sans-serif;}
+        h1, h2, h3, h4, h5{font-weight: 500;}
+        h1{font-size: 5rem; }
+        h2{font-size: 2rem; color: #fff !important;}
+        .xs-show{display: none;}
+
+        .nav-container{position: fixed; top: 0; left: 0; z-index: 100; width: 100%; }
+        .nav-container ul{display: flex; justify-content: space-around; background-color: #111;}
+        .nav-container ul li{padding: 1rem 2rem; width: 100%; text-align: center; }
+        .nav-container .toggle-btn{position: absolute; right: 1rem; top: 0.4rem; color: #fff; padding: 1rem; display: none; background-color: #111; border-radius: 50%;}
+        
+
+        .nav-container ul li a{color: #fff; display: inline-block; width: 100%; font-weight: 300; position: relative;}
+        .nav-container ul li a:hover::after{transform: scaleX(1); transform-origin: left;}
+        .nav-container ul li a::after{content: ''; position: absolute; left: 0; bottom: -0.4rem; width: 100%; height: 2px; background-color: #fff; transform: scaleX(0); transform-origin: right; transition: transform .2s ease;}
+
+        .section{width: 100%; height: 100%; min-height: 600px; background: linear-gradient(to top, #414345, #111); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; color: #eee;}
+        #home{background: url(./images/key_visual.png) no-repeat center/cover; color: #fff; }
+        #home h1, #home p{opacity: 0;}
+        #home h1.loaded{animation: downFadeIn 1s ease .3s forwards;}
+        #home p.loaded{animation: downFadeIn 1s ease .5s forwards;}
+
+        @keyframes downFadeIn {
+            0%{transition: all .5s ease; transform: translateY(-20px); opacity: 0;}
+            100%{transform: translateY(0); opacity: 1;}
+        }
+
+        #about{justify-content: space-around;}
+        #about .dgree-box{display: flex; flex-direction: row; width: 80%;}
+        #about .dgree-box div{width: 50%; color: #eee; background: rgba(0,0,0,0.2); border-radius: .25rem; padding: 1rem 2rem 2rem; margin: 0 1rem; font-weight: 300;  }
+        #about h2, #about .dgree-box div:first-child, #about .dgree-box div:last-child{opacity: 0;}
+        #about.active h2{animation: downFadeIn 1s ease .3s forwards;}
+        #about.active .dgree-box div:first-child{animation: downFadeIn 1s ease .5s forwards;}
+        #about.active .dgree-box div:last-child{animation: downFadeIn 1s ease .7s forwards;}
+        #about .dgree-box div span, #skillset .skillset-box .skillsets .skill-tit{display: block; margin: 0 0 .7rem; font-size: 1.25rem; font-weight: 400; color: #fff;}
+        #about .dgree-box div strong{font-weight: 400; display: inline-block; padding-right: .5rem;}
+
+        #skillset{background: url(./images/skillset_bg.png) no-repeat center/cover; background-attachment: fixed;}
+        #skillset .skillset-box{width: 90%; background-color: rgba(0,0,0,0.7); border-radius: .25rem; padding: 1rem; opacity: 0;}
+        #skillset.active .skillset-box{animation: downFadeIn 1s ease .3s forwards;}
+        #skillset .skillset-box h2{text-align: center; margin: 0 0 2rem;}
+        #skillset .skillset-box .skillsets{display: flex; justify-content: space-around; padding: 2rem 0;}
+        #skillset .skillset-box .skillsets > li{margin: 0 0 2rem; transition: all .2s ease-out;}
+        #skillset .skillset-box .skillsets > li:hover{transform: scale(1.1); }
+
+        #project{min-height: 1000px; padding: 1.5rem 0; background: linear-gradient(#111, #414345, #111); display: flex; flex-direction: column; justify-content: space-around;}
+        #project div{width: 100%;}
+        
+        /* Style the buttons that are used to open and close the accordion panel */
+        .section.section-full{padding: 0;}
+
+        #project div .accordion-tit {
+        background-color: transparent;
+        color: #eee;
+        cursor: pointer;
+        padding: 2rem 1rem;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: all 0.4s ease;
+        font-size: 5rem;
+        font-weight: 600;
+        border-bottom: 2px solid #111;
+        }
+        #project div .accordion-tit:first-child{
+            border-top: 2px solid #111;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        #project div .accordion-tit.active, #project div .accordion-tit:hover {
+        color: #555;
+        }
+
+        /* Style the accordion panel. Note: hidden by default */
+        #project div .panel {
+        padding: 0 1rem;
+        background-color: #111;
+        max-height:0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        display: flex;
+        color: #eee;
+        }
+        #project div .panel ul{padding: 14px;}
+        #project div .panel ul a{word-break: keep-all;}
+        #project div .panel ul a:hover{color: #eee;}
+
+        #project div .panel.lge{flex-direction: row; }
+        #project div .panel.lge div{width: 50%; border-top: 2px solid #eee;}
+        #project div .panel.lge div.left-panel{display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        #project div .panel.lge div.right-panel{position: relative; min-height: 600px; }
+        #project div .panel.lge div.right-panel img{width: 30%; max-width: 35%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+
+        #project div .panel.apple{flex-direction: column;}
+        #project div .panel.apple div{border-top: 2px solid #eee;}
+        #project div .panel.apple div.top-panel{position: relative; min-height: 540px;}
+        #project div .panel.apple div.top-panel img.imac-front{width: 50%; max-width: 28%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+        #project div .panel.apple div.bottom-panel{display: flex; flex-direction: row; }
+
+        #project div .panel.cns{flex-direction: row; }
+        #project div .panel.cns div{width: 50%; border-top: 2px solid #eee;}
+        #project div .panel.cns div.right-panel{display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        #project div .panel.cns div.left-panel{position: relative; min-height: 600px; }
+        #project div .panel.cns div.left-panel img{width: 35%; max-width: 20%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+
+        #project div .panel.nh{flex-direction: column; }
+        #project div .panel.nh div{border-top: 2px solid #eee;}
+        #project div .panel.nh div.top-panel{position: relative; min-height: 540px;}
+        #project div .panel.nh div.top-panel img{width: 60%; max-width: 30%; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+        #project div .panel.nh div.bottom-panel{display: flex; flex-direction: row; }
+
+        #contact{min-height: 250px; background-image: none; background-color: #111; height: 100%; color: #eee; display: flex; justify-content: space-around; padding: 1rem;}
+        #contact p{font-size: .8rem; font-weight: 200;}
+        #contact a.github-link{font-size: 2rem; color: #fff; transition: all .3s ease;}
+        #contact a.github-link:hover{transform: rotate(30deg);}
+        #contact a.mail-link{position: relative;}
+        #contact a.mail-link::after{content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background-color: #fff; transform: scaleX(0); transform-origin: right; transition: transform .3s ease;}
+        #contact a.mail-link:hover::after{ transform: scaleX(1); transform-origin: left;}
+        
+        @media screen and (max-width:1280px) {
+            #project div .panel.lge div.right-panel img{width: 60%; max-width: 60%;}
+
+            #project div .panel.apple div.top-panel img.imac-front{max-width: 50%;}
+
+            #project div .panel.cns div.left-panel img{width: 80%; max-width: 40%;}
+
+            #project div .panel.nh div.top-panel img{width: 60%; max-width: 50%;}
+        }
+
+        @media screen and (max-width:768px) {
+            .nav-container ul{display: flex; flex-direction: column; background-color: #111; display: none;}
+            .nav-container ul.open{display: block;}
+            .nav-container ul li a{width: 80%; }
+            .nav-container .toggle-btn{display: block;}
+
+            #about .dgree-box{width: 90%; display: flex; flex-direction: column;}
+            #about .dgree-box div{margin: 1rem 0; width: 100%;}
+
+            #skillset .skillset-box{padding: 2rem; width: 100%;}
+            #skillset .skillset-box h2{margin: 0;}
+            #skillset .skillset-box .skillsets{display: flex; flex-direction: column; text-align: center; padding: 2rem 0 0;}
+            
+            #project div .panel{text-align: center;}
+            #project div .panel ul{padding: 1.5rem 1rem;}
+            #project div .panel.lge{flex-direction: column-reverse; }
+            #project div .panel.lge div{width: 100%;}
+            #project div .panel.lge div.right-panel img{width: 60%; max-width: 55%;}
+
+            #project div .panel.apple div.top-panel, #project div .panel.nh div.top-panel{min-height: 400px;}
+            #project div .panel.apple div.bottom-panel, #project div .panel.nh div.bottom-panel{flex-direction: column;}
+            #project div .panel.apple div.top-panel img.imac-front{width: 100%; max-width: 75%;}
+
+            #project div .panel.cns{flex-direction: column; }
+            #project div .panel.cns div{width: 100%; }
+            #project div .panel.cns div.left-panel img{width: 40%; max-width: 34%;}
+
+            #project div .panel.nh div.top-panel img{width: 100%; max-width: 70%;}
+        }
+
+        @media screen and (max-width:500px) {
+            #project div .panel.apple div.top-panel img.imac-side{
+                margin-left: 100px;
+            }
+            .xs-show{display: block;}
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <ul>
+            <li><a class="scroll" href="#home" data-link="home">Home</a></li>
+            <li><a class="scroll" href="#about" data-link="about">About me</a></li>
+            <li><a class="scroll" href="#skillset" data-link="skillset">Skillset</a></li>
+            <li><a class="scroll" href="#project" data-link="project">Projects</a></li>
+            <li><a class="scroll" href="#contact" data-link="contact">Contact</a></li>
+        </ul>
+
+        <!-- toggle button -->
+        <button class="toggle-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+    <section id="home" class="section">
+        <h1>Portfolio</h1>
+        <p>Hello, My name is Lim Jeong Ah! <br class="xs-show"/>I am a Web Publisher.</p>
+    </section>
+    <section id="about" class="section">
+        <h2>About me</h2>
+        <div class="dgree-box">
+            <div>
+                <span>Education</span>
+                <ul>
+                    <li><strong>INJE University</strong> 2007.02 - 2014.08</li>
+                </ul>
+            </div>
+            <div>
+                <span>Word Experience</span>
+                <ul>
+                    <li><strong>Mou Interactive</strong> 2015.06 - 2016.08</li>
+                    <li><strong>GM Solution</strong> 2017.02 - 2017.04</li>
+                    <li><strong>Mullenloweprofero Korea</strong> 2017.11 - 2018.01</li>
+                    <li><strong>Grey Worldwide Korea</strong> 2018.04 - 2020.01</li>
+                    <li><strong>Numerique Studio</strong> 2020 - Present</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="skillset" class="section">
+        <div class="skillset-box">
+            <h2>Skillset</h2>
+            <ul class="skillsets">
+                <li>
+                    <span class="skill-tit">Development Skills</span>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>Jquery/Javascript</li>
+                        <li>SCSS/SASS</li>
+                        <li>Responsive Web</li>
+                        <li>Accessibility</li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="skill-tit">Project Managing Skills</span>
+                    <ul>
+                        <li>Github</li>
+                        <li>SVN</li>
+                        <li>FTP</li>
+                        <li>NPM</li>
+                        <li>Webpack</li>
+                    </ul>
+                </li>
+                <li><span class="skill-tit">Tools</span>
+                    <ul>
+                        <li>Visual Studio Code</li>
+                        <li>Terminal</li>
+                        <li>Photoshop</li>
+                        <li>Figma</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="project" class="section section-full">
+        <h2>Projects</h2>
+        <div class="project-items">
+            <button class="accordion-tit">LGE</button>
+            <div class="panel lge">
+                <div class="left-panel">
+                    <div>
+                        <ul>
+                            <li>Client : LGE</li>
+                            <li>Project type : Web Publishing</li>
+                            <li>Project URL : <a class="go-to-site" href="https://www.lge.com/">https://www.lge.com/</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <strong>Project Details</strong>
+                                <ul>
+                                    <li>Builded and managed the event pages and a brand mall of LGE on e-commerce market.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Technologies Used</strong>
+                                <ul>
+                                    <li>HTML5</li>
+                                    <li>CSS3</li>
+                                    <li>Responsive Web</li>
+                                    <li>Cross-Browsing</li>
+                                    <li>Accessibility</li>
+                                    <li>Javascript</li>
+                                    <li>Jquery</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- left-panel -->
+                <div class="right-panel">
+                    <img src="./images/lge_visual_2x.png" alt="">
+                </div><!-- right-panel -->
+            </div><!-- panel lge -->
+            
+            <button class="accordion-tit">Apple Korea</button>
+            <div class="panel apple">
+                <div class="top-panel">
+                    <img class="imac-front" src="./images/apple_visual_2x.png" alt="">
+                    <!-- <img class="imac-side" src="./images/imac_side_2x.png" alt=""> -->
+                </div><!-- end top-panel -->
+                <div class="bottom-panel">
+                    <div>
+                        <ul>
+                            <li>Client : Apple Korea</li>
+                            <li>Project type : Web Publishing</li>
+                            <li>Project URL : <a class="go-to-site" href="https://www.apple.com/kr/">https://www.apple.com/kr/</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <strong>Project Details</strong>
+                                <ul>
+                                    <li>Localized to korea version and managed the site of Apple Korea.</li>
+                                    <li>Builded and managed DM(Direct Mail)s of Apple Korea.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Technologies Used</strong>
+                                <ul>
+                                    <li>HTML5/HTML4</li>
+                                    <li>CSS3/CSS</li>
+                                    <li>Responsive-Web</li>
+                                    <li>Cross-Browsing</li>
+                                    <li>Accessibility</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- end bottom-panel -->
+            </div><!-- end panel apple -->
+            
+            <button class="accordion-tit">LG CNS</button>
+            <div class="panel cns">
+                <div class="left-panel">
+                    <img class="front" src="./images/cns_visual_1_2x.png" alt="">
+                    <img class="center" src="./images/cns_visual_2_2x.png" alt="">
+                    <img class="back" src="./images/cns_visual_3_2x.png" alt="">
+                </div><!-- left-panel -->
+                <div class="right-panel">
+                    <div>
+                        <ul>
+                            <li>Client : LG CNS</li>
+                            <li>Project type : Web Publishing</li>
+                            <li>Project URL : <a class="go-to-site" href="https://www.lg.com/global">https://www.lg.com/global</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li>
+                                <strong>Project Details</strong>
+                                <ul>
+                                    <li>Localized to global version and managed the micro site of LGE.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Technologies Used</strong>
+                                <ul>
+                                    <li>HTML5</li>
+                                    <li>CSS3</li>
+                                    <li>Responsive-Web</li>
+                                    <li>Cross-Browsing</li>
+                                    <li>Accessibility</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- right-panel -->
+            </div><!-- end panel cns -->
+
+            <button class="accordion-tit">NH bank</button>
+            <div class="panel nh">
+                <div class="top-panel">
+                    <img src="./images/nh_visual_2x.png" alt="">
+                </div><!-- top-panel -->
+                <div class="bottom-panel">
+                        <div>
+                            <ul>
+                                <li>Client : NH bank</li>
+                                <li>Project type : Web Publishing</li>
+                                <li>Project URL : <a class="go-to-site" href="https://www.nhbank.com/nhmn/KO_NHMN_01.do">https://www.nhbank.com/nhmn/<br class="xs-show"/>KO_NHMN_01.do</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <strong>Project Details</strong>
+                                    <ul>
+                                        <li>Builded site of NH bank</li><!-- discribe project detail -->
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>Technologies Used</strong>
+                                    <ul>
+                                        <li>HTML5</li>
+                                        <li>CSS3</li>
+                                        <li>Responsive-Web</li>
+                                        <li>Cross-Browsing</li>
+                                        <li>Accessibility</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                </div><!-- bottom-panel -->
+            </div><!-- panel nh -->
+        </div><!-- project-items -->
+    </section>
+    <section id="contact" class="section">
+        <h2>Contact me</h2>
+        <a class="github-link" href="https://jeong-ah-lim.github.io/portfolio/index.html" target="_blank"><i class="fab fa-github"></i></a>
+        <a class="mail-link" href="mailto:gsl0929@gmail.com">gsl0929@naver.com</a>
+        <p>2021 Lim Jeong Ah - All rights reserved</p>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="./js/intersection_observer_polyfill.js"></script> -->
+    <script>
+       'use strict';
+
+        //how to support background-attachment fixed for ie11
+        if(navigator.userAgent.match(/Trident\/7\./)) {
+            document.body.addEventListener("mousewheel", function() {
+                event.preventDefault();
+                var wd = event.wheelDelta;
+                var csp = window.pageYOffset;
+                window.scrollTo(0, csp - wd);
+            });
+        } 
+
+        //on small size, add toggle button
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const navList = document.querySelector('.nav-container ul');
+
+        toggleBtn.addEventListener('click', function(e){
+            navList.classList.toggle('open');
+           
+        });
+
+        //when it loaded, how to add style on title
+        const homeTit = document.querySelector('h1');
+        const homeSubtit = document.querySelector('#home p');
+
+        window.addEventListener('load', function(){
+            homeTit.classList.add('loaded');
+            homeSubtit.classList.add('loaded');
+        });
+
+
+        // how to smooth scrolling & add styling on nav
+        $(document).ready(function(){
+            
+            var scrollLink = $('.scroll');
+
+            //smooth scrolling
+            scrollLink.click(function(e){
+                e.preventDefault();
+
+                navList.classList.remove('open');
+
+                $('body,html').animate({
+                    scrollTop: $(this.hash).offset().top
+                }, 1000);
+            })
+
+            //active link switching
+            $(window).scroll(function(){
+                var scrollbarLocation = $(this).scrollTop();
+                // console.log(scrollbarLocation);
+                scrollLink.each(function(){
+                    var sectionOffset = $(this.hash).offset().top - 50;
+                    
+                    if(sectionOffset <= scrollbarLocation){
+                        $(this).addClass('active');
+                        $(this).siblings().removeClass('active');
+                        
+                    }else{
+                        
+                    }
+                })
+
+            })
+
+        })
+
+        var accordionList = document.getElementsByClassName("accordion-tit");
+        var i;
+
+        for (i = 0; i < accordionList.length; i++) {
+            accordionList[i].addEventListener("click", function(e) {
+            /* Toggle between adding and removing the "active" class,
+            to highlight the button that controls the panel */
+            this.classList.toggle("active");
+
+            /* Toggle between hiding and showing the active panel */
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                } else {
+                panel.style.maxHeight = panel.scrollHeight + 300 + "px";
+            }
+            });
+        }
+
+        // when it scrolling, how to add style on sections
+        const els = document.querySelectorAll('section');
+
+        const option = {
+            root:null,
+            rootMargin:'0px',
+            threshold: 0.2,
+        }
+
+
+        const callback = function (entries, observer){
+            entries.forEach(function(entry){
+                if(entry.isIntersecting){
+                    entry.target.classList.add('active');
+                } 
+            });
+        }
+
+        const observer = new IntersectionObserver(callback, option);
+        
+        els.forEach(function(el){
+            observer.observe(el);
+        })
+
+
+
+    </script>
+</body>
+</html>
