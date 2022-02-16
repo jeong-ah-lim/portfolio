@@ -181,212 +181,107 @@
             }
             .xs-show{display: block;}
         }
+        @media screen and (max-width:280px) {
+            h1{
+                font-size: 4rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav class="nav-container">
-        <ul>
-            <li><a class="scroll" href="#home" data-link="home">Home</a></li>
-            <li><a class="scroll" href="#about" data-link="about">About me</a></li>
-            <li><a class="scroll" href="#skillset" data-link="skillset">Skillset</a></li>
-            <li><a class="scroll" href="#project" data-link="project">Projects</a></li>
-            <li><a class="scroll" href="#contact" data-link="contact">Contact</a></li>
-        </ul>
-
-        <!-- toggle button -->
-        <button class="toggle-btn">
-            <i class="fas fa-bars"></i>
-        </button>
-    </nav>
-    <section id="home" class="section">
-        <h1>Portfolio</h1>
-        <p>Hello, My name is Lim Jeong Ah! <br class="xs-show"/>I am a Web Publisher.</p>
-    </section>
-    <section id="about" class="section">
-        <h2>About me</h2>
-        <div class="dgree-box">
-            <div>
-                <span>Education</span>
-                <ul>
-                    <li><strong>INJE University</strong> 2007.02 - 2014.08</li>
-                </ul>
-            </div>
-            <div>
-                <span>Word Experience</span>
-                <ul>
-                    <li><strong>Mou Interactive</strong> 2015.06 - 2016.08</li>
-                    <li><strong>GM Solution</strong> 2017.02 - 2017.04</li>
-                    <li><strong>Mullenloweprofero Korea</strong> 2017.11 - 2018.01</li>
-                    <li><strong>Grey Worldwide Korea</strong> 2018.04 - 2020.01</li>
-                    <li><strong>Numerique Studio</strong> 2020 - Present</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="skillset" class="section">
-        <div class="skillset-box">
-            <h2>Skillset</h2>
-            <ul class="skillsets">
-                <li>
-                    <span class="skill-tit">Development Skills</span>
-                    <ul>
-                        <li>HTML5</li>
-                        <li>CSS3</li>
-                        <li>Jquery/Javascript</li>
-                        <li>SCSS/SASS</li>
-                        <li>Responsive Web</li>
-                        <li>Accessibility</li>
-                    </ul>
-                </li>
-                <li>
-                    <span class="skill-tit">Project Managing Skills</span>
-                    <ul>
-                        <li>Github</li>
-                        <li>SVN</li>
-                        <li>FTP</li>
-                        <li>NPM</li>
-                        <li>Webpack</li>
-                    </ul>
-                </li>
-                <li><span class="skill-tit">Tools</span>
-                    <ul>
-                        <li>Visual Studio Code</li>
-                        <li>Terminal</li>
-                        <li>Photoshop</li>
-                        <li>Figma</li>
-                    </ul>
-                </li>
+    <div class="wrap">
+        <nav class="nav-container">
+            <ul>
+                <li><a class="scroll" href="#home" data-link="home">Home</a></li>
+                <li><a class="scroll" href="#about" data-link="about">About me</a></li>
+                <li><a class="scroll" href="#skillset" data-link="skillset">Skillset</a></li>
+                <li><a class="scroll" href="#project" data-link="project">Projects</a></li>
+                <li><a class="scroll" href="#contact" data-link="contact">Contact</a></li>
             </ul>
-        </div>
-    </section>
-    <section id="project" class="section section-full">
-        <h2>Projects</h2>
-        <div class="project-items">
-            <button class="accordion-tit">LGE</button>
-            <div class="panel lge">
-                <div class="left-panel">
-                    <div>
-                        <ul>
-                            <li>Client : LGE</li>
-                            <li>Project type : Web Publishing</li>
-                            <li>Project URL : <a class="go-to-site" href="https://www.lge.com/">https://www.lge.com/</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <strong>Project Details</strong>
-                                <ul>
-                                    <li>Builded and managed the event pages and a brand mall of LGE on e-commerce market.</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Technologies Used</strong>
-                                <ul>
-                                    <li>HTML5</li>
-                                    <li>CSS3</li>
-                                    <li>Responsive Web</li>
-                                    <li>Cross-Browsing</li>
-                                    <li>Accessibility</li>
-                                    <li>Javascript</li>
-                                    <li>Jquery</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!-- left-panel -->
-                <div class="right-panel">
-                    <img src="./images/lge_visual_2x.png" alt="">
-                </div><!-- right-panel -->
-            </div><!-- panel lge -->
-            
-            <button class="accordion-tit">Apple Korea</button>
-            <div class="panel apple">
-                <div class="top-panel">
-                    <img class="imac-front" src="./images/apple_visual_2x.png" alt="">
-                    <!-- <img class="imac-side" src="./images/imac_side_2x.png" alt=""> -->
-                </div><!-- end top-panel -->
-                <div class="bottom-panel">
-                    <div>
-                        <ul>
-                            <li>Client : Apple Korea</li>
-                            <li>Project type : Web Publishing</li>
-                            <li>Project URL : <a class="go-to-site" href="https://www.apple.com/kr/">https://www.apple.com/kr/</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <strong>Project Details</strong>
-                                <ul>
-                                    <li>Localized to korea version and managed the site of Apple Korea.</li>
-                                    <li>Builded and managed DM(Direct Mail)s of Apple Korea.</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Technologies Used</strong>
-                                <ul>
-                                    <li>HTML5/HTML4</li>
-                                    <li>CSS3/CSS</li>
-                                    <li>Responsive-Web</li>
-                                    <li>Cross-Browsing</li>
-                                    <li>Accessibility</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!-- end bottom-panel -->
-            </div><!-- end panel apple -->
-            
-            <button class="accordion-tit">LG CNS</button>
-            <div class="panel cns">
-                <div class="left-panel">
-                    <img class="front" src="./images/cns_visual_1_2x.png" alt="">
-                    <img class="center" src="./images/cns_visual_2_2x.png" alt="">
-                    <img class="back" src="./images/cns_visual_3_2x.png" alt="">
-                </div><!-- left-panel -->
-                <div class="right-panel">
-                    <div>
-                        <ul>
-                            <li>Client : LG CNS</li>
-                            <li>Project type : Web Publishing</li>
-                            <li>Project URL : <a class="go-to-site" href="https://www.lg.com/global">https://www.lg.com/global</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <ul>
-                            <li>
-                                <strong>Project Details</strong>
-                                <ul>
-                                    <li>Localized to global version and managed the micro site of LGE.</li>
-                                </ul>
-                            </li>
-                            <li>
-                                <strong>Technologies Used</strong>
-                                <ul>
-                                    <li>HTML5</li>
-                                    <li>CSS3</li>
-                                    <li>Responsive-Web</li>
-                                    <li>Cross-Browsing</li>
-                                    <li>Accessibility</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div><!-- right-panel -->
-            </div><!-- end panel cns -->
 
-            <button class="accordion-tit">NH bank</button>
-            <div class="panel nh">
-                <div class="top-panel">
-                    <img src="./images/nh_visual_2x.png" alt="">
-                </div><!-- top-panel -->
-                <div class="bottom-panel">
+            <!-- toggle button -->
+            <button class="toggle-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <section id="home" class="section">
+            <h1>Portfolio</h1>
+            <p>Hello, My name is Lim Jeong Ah! <br class="xs-show"/>I am a Web Publisher.</p>
+        </section>
+        <section id="about" class="section">
+            <h2>About me</h2>
+            <div class="dgree-box">
+                <div>
+                    <span>Education</span>
+                    <ul>
+                        <li><strong>INJE University</strong> 2007.02 - 2014.08</li>
+                    </ul>
+                </div>
+                <div>
+                    <span>Work Experience</span>
+                    <ul>
+                        <li><strong>Mou Interactive</strong> 2015.06 - 2016.08</li>
+                        <li><strong>GM Solution</strong> 2017.02 - 2017.04</li>
+                        <li><strong>Mullenloweprofero Korea</strong> 2017.11 - 2018.01</li>
+                        <li><strong>Grey Worldwide Korea</strong> 2018.04 - 2020.01</li>
+                        <li><strong>Numerique Studio</strong> 2020.01 - Present</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="skillset" class="section">
+            <div class="skillset-box">
+                <h2>Skillset</h2>
+                <ul class="skillsets">
+                    <li>
+                        <span class="skill-tit">Development Skills</span>
+                        <ul>
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>Jquery/Javascript</li>
+                            <li>SCSS/SASS</li>
+                            <li>Responsive Web</li>
+                            <li>Accessibility</li>
+                            <li>Vue/Vuex/Nuxt</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="skill-tit">Project Managing Skills</span>
+                        <ul>
+                            <li>Github</li>
+                            <li>SVN</li>
+                            <li>FTP</li>
+                            <li>NPM</li>
+                            <li>Webpack</li>
+                        </ul>
+                    </li>
+                    <li><span class="skill-tit">Tools</span>
+                        <ul>
+                            <li>Visual Studio Code</li>
+                            <li>Terminal</li>
+                            <li>Photoshop</li>
+                            <li>Figma</li>
+                            <li>Zeplin</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="project" class="section section-full">
+            <h2>Projects</h2>
+            <div class="project-items">
+                <button class="accordion-tit">Ground X</button>
+                <div class="panel apple">
+                    <div class="top-panel">
+                        <img class="imac-front" src="./images/groundx_visual_2x.png" alt="">
+                        <!-- <img class="imac-side" src="./images/imac_side_2x.png" alt=""> -->
+                    </div><!-- end top-panel -->
+                    <div class="bottom-panel">
                         <div>
                             <ul>
-                                <li>Client : NH bank</li>
+                                <li>Client : Ground X</li>
                                 <li>Project type : Web Publishing</li>
-                                <li>Project URL : <a class="go-to-site" href="https://www.nhbank.com/nhmn/KO_NHMN_01.do">https://www.nhbank.com/nhmn/<br class="xs-show"/>KO_NHMN_01.do</a></li>
+                                <li>Project URL : <a class="go-to-site" href="https://about.klipdrops.com/">https://about.klipdrops.com/</a></li>
                             </ul>
                         </div>
                         <div>
@@ -394,7 +289,122 @@
                                 <li>
                                     <strong>Project Details</strong>
                                     <ul>
-                                        <li>Builded site of NH bank</li><!-- discribe project detail -->
+                                        <li>Builded and managed ABOUT page of Klipdrops site serviced by Ground X</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>Technologies Used</strong>
+                                    <ul>
+                                        <li>HTML5</li>
+                                        <li>CSS3</li>
+                                        <li>SASS</li>
+                                        <li>Responsive-Web</li>
+                                        <li>Cross-Browsing</li>
+                                        <li>Accessibility</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- end bottom-panel -->
+                </div><!-- end panel Ground X -->
+
+                <button class="accordion-tit">LGE</button>
+                <div class="panel lge">
+                    <div class="left-panel">
+                        <div>
+                            <ul>
+                                <li>Client : LGE</li>
+                                <li>Project type : Web Publishing</li>
+                                <li>Project URL : <a class="go-to-site" href="https://www.lge.com/">https://www.lge.com/</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <strong>Project Details</strong>
+                                    <ul>
+                                        <li>Builded and managed the event pages and a brand mall of LGE on e-commerce market.</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>Technologies Used</strong>
+                                    <ul>
+                                        <li>HTML5</li>
+                                        <li>CSS3</li>
+                                        <li>Responsive Web</li>
+                                        <li>Cross-Browsing</li>
+                                        <li>Accessibility</li>
+                                        <li>Javascript</li>
+                                        <li>Jquery</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- left-panel -->
+                    <div class="right-panel">
+                        <img src="./images/lge_visual_2x.png" alt="">
+                    </div><!-- right-panel -->
+                </div><!-- panel lge -->
+                
+                <button class="accordion-tit">Apple Korea</button>
+                <div class="panel apple">
+                    <div class="top-panel">
+                        <img class="imac-front" src="./images/apple_visual_2x.png" alt="">
+                        <!-- <img class="imac-side" src="./images/imac_side_2x.png" alt=""> -->
+                    </div><!-- end top-panel -->
+                    <div class="bottom-panel">
+                        <div>
+                            <ul>
+                                <li>Client : Apple Korea</li>
+                                <li>Project type : Web Publishing</li>
+                                <li>Project URL : <a class="go-to-site" href="https://www.apple.com/kr/">https://www.apple.com/kr/</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <strong>Project Details</strong>
+                                    <ul>
+                                        <li>Localized to korea version and managed the site of Apple Korea.</li>
+                                        <li>Builded and managed DM(Direct Mail)s of Apple Korea.</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>Technologies Used</strong>
+                                    <ul>
+                                        <li>HTML5/HTML4</li>
+                                        <li>CSS3/CSS</li>
+                                        <li>Responsive-Web</li>
+                                        <li>Cross-Browsing</li>
+                                        <li>Accessibility</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><!-- end bottom-panel -->
+                </div><!-- end panel apple -->
+                
+                <button class="accordion-tit">LG CNS</button>
+                <div class="panel cns">
+                    <div class="left-panel">
+                        <img class="front" src="./images/cns_visual_1_2x.png" alt="">
+                        <img class="center" src="./images/cns_visual_2_2x.png" alt="">
+                        <img class="back" src="./images/cns_visual_3_2x.png" alt="">
+                    </div><!-- left-panel -->
+                    <div class="right-panel">
+                        <div>
+                            <ul>
+                                <li>Client : LG CNS</li>
+                                <li>Project type : Web Publishing</li>
+                                <li>Project URL : <a class="go-to-site" href="https://www.lg.com/global">https://www.lg.com/global</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>
+                                    <strong>Project Details</strong>
+                                    <ul>
+                                        <li>Localized to global version and managed the micro site of LGE.</li>
                                     </ul>
                                 </li>
                                 <li>
@@ -409,16 +419,53 @@
                                 </li>
                             </ul>
                         </div>
-                </div><!-- bottom-panel -->
-            </div><!-- panel nh -->
-        </div><!-- project-items -->
-    </section>
-    <section id="contact" class="section">
-        <h2>Contact me</h2>
-        <a class="github-link" href="https://jeong-ah-lim.github.io/portfolio/index.html" target="_blank"><i class="fab fa-github"></i></a>
-        <a class="mail-link" href="mailto:gsl0929@gmail.com">gsl0929@naver.com</a>
-        <p>2021 Lim Jeong Ah - All rights reserved</p>
-    </section>
+                    </div><!-- right-panel -->
+                </div><!-- end panel cns -->
+
+                <button class="accordion-tit">NH bank</button>
+                <div class="panel nh">
+                    <div class="top-panel">
+                        <img src="./images/nh_visual_2x.png" alt="">
+                    </div><!-- top-panel -->
+                    <div class="bottom-panel">
+                            <div>
+                                <ul>
+                                    <li>Client : NH bank</li>
+                                    <li>Project type : Web Publishing</li>
+                                    <li>Project URL : <a class="go-to-site" href="https://www.nhbank.com/nhmn/KO_NHMN_01.do">https://www.nhbank.com/nhmn/<br class="xs-show"/>KO_NHMN_01.do</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul>
+                                    <li>
+                                        <strong>Project Details</strong>
+                                        <ul>
+                                            <li>Builded site of NH bank</li><!-- discribe project detail -->
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Technologies Used</strong>
+                                        <ul>
+                                            <li>HTML5</li>
+                                            <li>CSS3</li>
+                                            <li>Responsive-Web</li>
+                                            <li>Cross-Browsing</li>
+                                            <li>Accessibility</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                    </div><!-- bottom-panel -->
+                </div><!-- panel nh -->
+            </div><!-- project-items -->
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact me</h2>
+            <a class="github-link" href="https://jeong-ah-lim.github.io/portfolio/index.html" target="_blank"><i class="fab fa-github"></i></a>
+            <a class="mail-link" href="mailto:gsl0929@gmail.com">gsl0929@naver.com</a>
+            <p>2022 Lim Jeong Ah - All rights reserved</p>
+        </section>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- <script src="./js/intersection_observer_polyfill.js"></script> -->
     <script>
